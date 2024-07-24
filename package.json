@@ -1,6 +1,6 @@
 {
   "name": "ms-prettify",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "An module to easily convert milliseconds to human readable time and vice versa",
   "main": "dist/index.js",
   "types": "dist/",
