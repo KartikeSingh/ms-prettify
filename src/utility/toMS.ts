@@ -7,11 +7,13 @@ import JAN from './justANumber';
  * @returns {Number} The time in milliseconds.
  */
 export default function (string: string): number | undefined {
-    const strings = string.toLowerCase()?.trim()?.split(/ +/g);
-    let number = 0, fails = 0, trials = 0;
+  const strings = string.toLowerCase()?.trim()?.split(/ +/g);
+  let number = 0,
+    fails = 0,
+    trials = 0;
 
-    strings.forEach((v, i) => {
-        trials++;
+  strings.forEach((v, i) => {
+    trials++;
 
         // Value is a number
         if (JAN(v)) {
@@ -25,15 +27,14 @@ export default function (string: string): number | undefined {
                 else fails++
             }
         } else {
-            const num = 
             const no = parseFloat(v)
             const str = v.substring(no.toString()?.length)?.trim()?.toLowerCase();
             const value = convert(str);
 
-            if (value && no) number += no * value;
-            else fails++;
-        }
-    });
+      if (value && no) number += no * value;
+      else fails++;
+    }
+  });
 
-    return fails === strings.length ? undefined : number;
+  return fails === strings.length ? undefined : number;
 }

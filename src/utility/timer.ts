@@ -1,15 +1,18 @@
-import converter from "./converter";
+import converter from './converter';
 
-export default function timer(time: number | string, callback: Function, ...args: any[]) {
-    return new Promise((resolve, reject) => {
-        const waitFor = typeof time === "number" ? time : converter(time);
+export default function timer(
+  time: number | string,
+  callback: Function,
+  ...args: any[]
+) {
+  const waitFor = typeof time === 'number' ? time : converter(time);
+  if (!waitFor) throw new Error('Invalid time was provided in the timer!');
 
-        if (!waitFor) return reject("Invalid time was provided in the timer!");
+  return new Promise((resolve) =>
+    setTimeout(() => {
+      if (typeof callback === 'function') callback(...args);
 
-        setTimeout(() => {
-            if (typeof callback === "function") callback(...args);
-            
-            resolve(true);
-        }, waitFor);
-    })
+      resolve();
+    }, waitFor)
+  );
 }

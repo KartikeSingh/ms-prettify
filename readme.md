@@ -1,23 +1,23 @@
-# Installations
+# Installation
 ```
 npm i ms-prettify
 ```
 
-# What ?
-An module to convert MS to human readable time and Human readable time to MS, with advanced options.
+# What is it?
+An module to convert MS to human readable time to MS with advanced options.
 
 # Note
-- Needs Node JS V-14 or above.
+- Requires Node.jS v14 or later.
 
 # Why?
 - Easy to use.
-- Advanced options for manipulating the reult.
-- Support for both TypeScript and JavaScript.
+- Advanced options for manipulating the result.
+- Support both TypeScript and JavaScript.
 
 # How?
 ```js
 const pms = require('ms-prettify').default;
-// import pms from 'ms-prettify'; // for TypeScript
+// import pms from 'ms-prettify'; // for TypeScript/ECMAScript usage
 
 console.log(pms("1hour 10 min")); // Output => 4200000
 console.log(pms("1hour 10 min 1y")); // Output => 31561800000
@@ -41,7 +41,7 @@ console.log(pms("hello world")); // Output => undefined
 # Timer
 ```js
 const { timer } = require('ms-prettify');
-// import { timer } from 'ms-prettify'; // for typescript usage
+// import { timer } from 'ms-prettify'; // for TypeScript/ECMAScript usage
 
 /**
  * @param {Number} time Time after which timer should be executed
@@ -58,4 +58,4 @@ await timer("15 seconds");
 ```
 
 # Support
-for support or issues or queries contace me on my [discord server](https://discord.gg/XYnMTQNTFh) or create a issue [here](https://github.com/KartikeSingh/ms-prettify/issues).
+for support or issues, contact me on my [discord server](https://discord.gg/XYnMTQNTFh) or create a issue [here](https://github.com/KartikeSingh/ms-prettify/issues).

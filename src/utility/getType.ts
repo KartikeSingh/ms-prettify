@@ -1,53 +1,26 @@
-const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24, week = day * 7, year = day * 365.25;
+const second = 1000,
+  minute = second * 60,
+  hour = minute * 60,
+  day = hour * 24,
+  week = day * 7,
+  year = day * 365.25;
+
+// regexes
+const YEAR_REGEX = /^y((rs?)|(ear(s|\(s\))?))?$/;
+const WEEK_REGEX = /^w(eek(s|\(s\))?)?$/;
+const DAY_REGEX = /^d(ay(s|\(s\))?)?$/;
+const HOUR_REGEX = /^h((rs?)|(our(s|\(s\))?))?$/;
+const MINUTE_REGEX = /^m((ins?)|(inute(s|\(s\))?))?$/;
+const SECOND_REGEX = /^s((ecs?)|(econd(s|\(s\))?))?$/;
+const MILLISECOND_REGEX = /^(ms|(msecs?)|(millisecond(s|\(s\))?))?$/;
 
 export default (string: string) => {
-    switch (string) {
-        case 'years':
-        case 'year':
-        case 'year(s)':
-        case 'yrs':
-        case 'yr':
-        case 'y':
-            return year;
-        case 'weeks':
-        case 'week':
-        case 'week(s)':
-        case 'w':
-            return week;
-        case 'days':
-        case 'day(s)':
-        case 'day':
-        case 'd':
-            return day;
-        case 'hours':
-        case 'hour(s)':
-        case 'hour':
-        case 'hrs':
-        case 'hr':
-        case 'h':
-            return hour;
-        case 'minutes':
-        case 'minute(s)':
-        case 'minute':
-        case 'mins':
-        case 'min':
-        case 'm':
-            return minute;
-        case 'seconds':
-        case 'second(s)':
-        case 'second':
-        case 'secs':
-        case 'sec':
-        case 's':
-            return second;
-        case 'milliseconds':
-        case 'millisecond(s)':
-        case 'millisecond':
-        case 'msecs':
-        case 'msec':
-        case 'ms':
-            return 1;
-        default:
-            return undefined;
-    }
-}
+  if (YEAR_REGEX.test(string)) return year;
+  else if (WEEK_REGEX.test(string)) return week;
+  else if (DAY_REGEX.test(string)) return day;
+  else if (HOUR_REGEX.test(string)) return hour;
+  else if (MINUTE_REGEX.test(string)) return minute;
+  else if (SECOND_REGEX.test(string)) return second;
+  else if (MILLISECOND_REGEX.test(string)) return 1;
+  else return undefined;
+};
