@@ -9,3 +9,5 @@ export {
     timer,
     // stopWatch
 }
+
+export * from "./interfaces";

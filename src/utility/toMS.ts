@@ -15,16 +15,20 @@ export default function (string: string): number | undefined {
 
         // Value is a number
         if (JAN(v)) {
-            let t = Math.abs(parseFloat(v));
+            const t = Math.abs(parseFloat(v));
+
             if (JAN(strings[i + 1]) || !strings[i + 1]) { number += t; fails-- } // Next value is also a number
             else {
-                let value = convert(strings[i + 1].trim()?.toLowerCase());
+                const value = convert(strings[i + 1].trim()?.toLowerCase());
+
                 if (value) number += value * t;
                 else fails++
             }
         } else {
-            let no = parseFloat(v), str = v.substring(no.toString()?.length)?.trim()?.toLowerCase();
-            let value = convert(str);
+            const num = 
+            const no = parseFloat(v)
+            const str = v.substring(no.toString()?.length)?.trim()?.toLowerCase();
+            const value = convert(str);
 
             if (value && no) number += no * value;
             else fails++;
