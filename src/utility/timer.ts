@@ -12,7 +12,7 @@ export default function timer(
     setTimeout(() => {
       if (typeof callback === 'function') callback(...args);
 
-      resolve();
+      resolve(Date.now());
     }, waitFor)
   );
 }
