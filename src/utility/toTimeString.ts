@@ -30,8 +30,8 @@ export default function (
 
   if (!expanded)
     time = time
-      .replace(/(year|day|hour|minute|second|week)s?/g, (x) => x[0])
-      ?.replace(/millisecond+s?/, 'ms');
+      .replace(/millisecond+s?/, 'ms')
+      .replace(/(year|day|hour|minute|second|week)s?/g, (x) => x[0]);
 
   return obj ? data : time;
 }
