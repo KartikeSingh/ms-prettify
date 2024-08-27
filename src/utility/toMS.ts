@@ -15,21 +15,24 @@ export default function (string: string): number | undefined {
   strings.forEach((v, i) => {
     trials++;
 
-        // Value is a number
-        if (JAN(v)) {
-            const t = Math.abs(parseFloat(v));
+    // Value is a number
+    if (JAN(v)) {
+      const t = Math.abs(parseFloat(v));
 
-            if (JAN(strings[i + 1]) || !strings[i + 1]) { number += t; fails-- } // Next value is also a number
-            else {
-                const value = convert(strings[i + 1].trim()?.toLowerCase());
+      if (JAN(strings[i + 1]) || !strings[i + 1]) {
+        number += t;
+        fails--;
+      } // Next value is also a number
+      else {
+        const value = convert(strings[i + 1].trim()?.toLowerCase());
 
-                if (value) number += value * t;
-                else fails++
-            }
-        } else {
-            const no = parseFloat(v)
-            const str = v.substring(no.toString()?.length)?.trim()?.toLowerCase();
-            const value = convert(str);
+        if (value) number += value * t;
+        else fails++;
+      }
+    } else {
+      const no = parseFloat(v);
+      const str = v.substring(no.toString()?.length)?.trim()?.toLowerCase();
+      const value = convert(str);
 
       if (value && no) number += no * value;
       else fails++;
